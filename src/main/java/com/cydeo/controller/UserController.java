@@ -14,24 +14,24 @@ import javax.validation.Valid;
 @RequestMapping("/user")
 public class UserController {
 
-    private final UserService userService;
-    private final RoleService roleService;
-
-    public UserController(UserService userService, RoleService roleService) {
-        this.userService = userService;
-        this.roleService = roleService;
-    }
-
-    @GetMapping("/create")
-    public String createUser(Model model) {
-
-        model.addAttribute("user", new UserDTO());
-        model.addAttribute("roles", roleService.listAllRoles());
-        model.addAttribute("users", userService.listAllUsers());
-
-        return "/user/create";
-    }
+//    private final UserService userService;
+//    private final RoleService roleService;
 //
+//    public UserController(UserService userService, RoleService roleService) {
+//        this.userService = userService;
+//        this.roleService = roleService;
+//    }
+//
+//    @GetMapping("/create")
+//    public String createUser(Model model) {
+//
+//        model.addAttribute("user", new UserDTO());
+//        model.addAttribute("roles", roleService.listAllRoles());
+//        model.addAttribute("users", userService.listAllUsers());
+//
+//        return "/user/create";
+//    }
+////
 //
 //    @PostMapping("/create")
 //    public String insertUser(@Valid @ModelAttribute("user") UserDTO user, BindingResult bindingResult, Model model) {
