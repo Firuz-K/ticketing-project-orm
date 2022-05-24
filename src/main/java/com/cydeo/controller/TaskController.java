@@ -2,6 +2,7 @@ package com.cydeo.controller;
 
 import com.cydeo.dto.TaskDTO;
 import com.cydeo.enums.Status;
+import com.cydeo.service.ProjectService;
 import com.cydeo.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,8 +29,8 @@ public class TaskController {
     public String createTask(Model model) {
 
         model.addAttribute("task", new TaskDTO());
-        model.addAttribute("projects", projectService.findAll());
-        model.addAttribute("employees", userService.findEmployees());
+        model.addAttribute("projects", projectService.listAllProjects());
+        model.addAttribute("employees", userService.listAllByRole());
         model.addAttribute("tasks", taskService.findAll());
 
         return "task/create";
