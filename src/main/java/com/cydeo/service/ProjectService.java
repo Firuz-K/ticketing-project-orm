@@ -13,6 +13,7 @@ public interface ProjectService {
     void delete(String code);
     void update(ProjectDTO dto);
     void complete(String projectDTO);
+    List<ProjectDTO> listAllProjectDetails();
 
 
 

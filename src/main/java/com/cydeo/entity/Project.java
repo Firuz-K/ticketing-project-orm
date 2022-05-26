@@ -1,25 +1,27 @@
 package com.cydeo.entity;
 
-import com.cydeo.dto.UserDTO;
+
 import com.cydeo.enums.Status;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@NoArgsConstructor
-@Data
 @Entity
 @Table(name = "projects")
+@NoArgsConstructor
+@Getter
+@Setter
 @Where(clause = "is_deleted=false")
-public class Project extends BaseEntity{
+public class Project extends BaseEntity {
 
     @Column(unique = true)
-    private String projectName;
     private String projectCode;
 
+    private String projectName;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "manager_id")
@@ -27,6 +29,7 @@ public class Project extends BaseEntity{
 
     @Column(columnDefinition = "DATE")
     private LocalDate startDate;
+
     @Column(columnDefinition = "DATE")
     private LocalDate endDate;
 
@@ -35,6 +38,5 @@ public class Project extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private Status projectStatus;
 
-    private int completeTaskCounts;
-    private int unfinishedTaskCounts;
+
 }
